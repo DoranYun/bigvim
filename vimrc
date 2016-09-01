@@ -19,12 +19,24 @@ filetype plugin indent on
 syntax enable
 syntax on
 
-colorscheme solarized
-"colorscheme molokai
-"colorscheme desert
+set encoding=utf-8
 
+if (empty($TMUX))
+      if (has("nvim"))
+          let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+      endif
+      if (has("termguicolors"))
+          set termguicolors
+      endif
+endif
+
+" style set
 set background=dark
-set t_Co=256
+colorscheme one
+let g:airline_theme='one'
+
+let g:one_allow_italics = 1
+
 set history=200           "history: number of command-lines remembered
 set autoread              " auto reload file after being modified
 set shortmess=atI         " do not show initial page
@@ -157,6 +169,9 @@ nnoremap <silent> ) g,
 
 "replace currently selected text with default register without yanking it
 vnoremap p "_dP
+
+" use jj to ESC insert mode
+inoremap jj <ESC>
 
 " use ctrl-c to copy to system clipboard
 vnoremap <C-c> "*y

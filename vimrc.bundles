@@ -67,6 +67,7 @@ Plug 'junegunn/gv.vim'
 " theme
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
+Plug 'rakr/vim-one'
 
 " search
 Plug 'ctrlpvim/ctrlp.vim'
@@ -83,15 +84,6 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'jsx']}
 Plug 'burnettk/vim-angular'
 Plug 'mxw/vim-jsx'
-
-" PHP
-if count(g:bigvim_minor_plugins, 'php')
-    Plug 'StanAngeloff/php.vim', {'for': 'php'}
-    Plug 'mkusher/padawan.vim', {'for': 'php'}
-    Plug 'ruanyl/vim-php-manual', {'for': 'php'}
-    Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
-    Plug 'fantasyczl/blade-php-vim'
-endif
 
 " CSS
 if count(g:bigvim_minor_plugins, 'css')
