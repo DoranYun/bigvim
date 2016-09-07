@@ -145,6 +145,18 @@ if has("autocmd")
 endif
 au InsertLeave * set nopaste
 
+" 定义跳出括号函数，用于跳出括号
+func SkipPair()
+    if getline('.')[col('.') - 1] == ')' || getline('.')[col('.') - 1] == ']' || getline('.')[col('.') - 1] == '"' || getline('.')[col('.') - 1] == "'" || getline('.')[col('.') - 1] == '}'
+        return "\<ESC>la"
+    else
+        return "\n"
+    endif
+endfunc
+
+" 将tab键绑定为跳出括号
+inoremap <CR> <c-r>=SkipPair()<CR>
+
 "close popup menu when leave insert mode
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
